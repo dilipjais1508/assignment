@@ -1,14 +1,19 @@
+import React from 'react';
 import './App.css'
-import AuthForm from './AuthForm'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Login'
+import Signup from './Signup'
+import Home from './Home'
+import NotFound from './NotFound'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<AuthForm initialMode="login" />} />
-        <Route path="/signup" element={<AuthForm initialMode="signup" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   )
